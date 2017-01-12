@@ -4,10 +4,13 @@
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
-    "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
-    "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "watch": "ionic-app-scripts watch",
+    "serve:before": "watch",
+    "emulate:before": "build",
+    "deploy:before": "build",
+    "build:before": "build",
+    "run:before": "build"
   },
   "dependencies": {
     "@angular/common": "2.2.1",
