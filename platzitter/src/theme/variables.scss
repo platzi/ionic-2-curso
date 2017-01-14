@@ -23,6 +23,7 @@ $font-path: "../assets/fonts";
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
+/*
 $colors: (
   primary:    #387ef5,
   secondary:  #32db64,
@@ -30,7 +31,7 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222
 );
-
+*/
 
 // App iOS Variables
 // --------------------------------------------------
@@ -76,3 +77,35 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+
+
+//variables
+
+$colors: (
+  primary:    #04B404,
+  secondary:  #5882FA,
+  danger:     #FE2E2E,
+  light:      #A9E2F3,
+  dark:       #000000,
+
+  reply:(
+    base: #55acee,
+    contrast: #ffffff
+  ),
+
+  replatzit:(
+    base: #55acee,
+    contrast: #000000
+  ),
+
+  headerColor:(
+    base:#04B404,
+    contrast: #000000
+  )
+
+);
+
+$text-color:#888888;
+
+$tabs-tab-color-active: #598B11;
