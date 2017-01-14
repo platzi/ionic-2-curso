@@ -1,12 +1,61 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      Profile
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
 
+
+  <ion-card>
+    <img src="{{me.img}}"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{me.nick_name}}
+      </ion-card-title>
+      <p>
+        {{me.bio}}
+      </p>
+    </ion-card-content>
+    <ion-item>
+      <ion-icon name="at" ></ion-icon>
+      Interacciones
+      <ion-badge item-right>{{me.interactions}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="logo-github"></ion-icon>
+      GitHub
+      <ion-badge item-right>{{me.github}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='logo-twitter' style="color: #55acee"></ion-icon>
+      Twitter
+      <ion-badge item-right>{{me.twitter}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="book"></ion-icon>
+      Medium
+      <ion-badge item-right>{{me.medium}}</ion-badge>
+    </ion-item>
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let item of listado">
+      <ion-avatar item-left>
+        <img src="{{item.img}}">
+      </ion-avatar>
+      <h2>{{item.nick_name}}</h2>
+      <h3>{{item.text}}</h3>
+      <ion-grid>
+        <ion-row>
+          <ion-col width-33><ion-icon name="ios-heart-outline"></ion-icon></ion-col>
+          <ion-col width-33><ion-icon name="share-alt"></ion-icon></ion-col>
+          <ion-col width-33><ion-icon name="repeat"></ion-icon></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
 
 </ion-content>
