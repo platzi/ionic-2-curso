@@ -3,10 +3,10 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-contact',
-  templateUrl: 'contact.html'
+  selector: 'page-profile',
+  templateUrl: 'profile.html'
 })
-export class ContactPage {
+export class ProfilePage {
 
   me:Me = {
     "img":'https://pbs.twimg.com/profile_images/807699331633598464/A_9pIQ6d.jpg',
