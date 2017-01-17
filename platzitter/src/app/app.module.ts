@@ -8,12 +8,15 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 
+import { VerNotificationPage } from '../pages/notification/verNotification';
+
 
 //refactor para router
 
 var links = [
   { component: LoginPage, name: 'Login', segment:'login'},
-  { component: TabsPage, name: 'tabs', segment: 'tabs' }
+  { component: TabsPage, name: 'tabs', segment: 'tabs' },
+  { component: VerNotificationPage, name: 'notification', segment: 'notification/:id' }
 ];
 
 @NgModule({
@@ -23,7 +26,8 @@ var links = [
     ProfilePage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    VerNotificationPage
   ],
   imports: [
     IonicModule.forRoot(MyApp, {}, links )
@@ -35,7 +39,8 @@ var links = [
     ProfilePage,
     LoginPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    VerNotificationPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
