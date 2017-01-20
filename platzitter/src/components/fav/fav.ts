@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
     selector: 'fav',
@@ -7,13 +7,21 @@ import { Component, Input } from '@angular/core';
 export class Fav {
   @Input() id: number;
 
+  @Output() onFav = new EventEmitter<string>();
+
   test = "";
   icon = "ios-heart-outline";
-
+  
   alerta(){
-      this.test = "primary";
-      this.icon = "ios-heart";
-      alert(this.id);
+      if (this.test == ""){
+        this.test = "primary";
+        this.icon = "ios-heart";
+      }
+      else{
+        this.test = "";
+        this.icon = "ios-heart-outline";
+      }
+      this.onFav.emit("gracias por hacer fav");
   }
 
 
