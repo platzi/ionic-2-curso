@@ -11,6 +11,9 @@ import { LoginPage } from '../pages/login/login';
 import { VerNotificationPage } from '../pages/notification/verNotification';
 
 
+import  { Fav } from '../components/fav/fav';
+
+
 //refactor para router
 
 var links = [
@@ -27,7 +30,8 @@ var links = [
     HomePage,
     TabsPage,
     LoginPage,
-    VerNotificationPage
+    VerNotificationPage,
+    Fav
   ],
   imports: [
     IonicModule.forRoot(MyApp, {}, links )
@@ -40,7 +44,8 @@ var links = [
     LoginPage,
     HomePage,
     TabsPage,
-    VerNotificationPage
+    VerNotificationPage,
+    Fav
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
