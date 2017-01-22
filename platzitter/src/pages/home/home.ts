@@ -4,6 +4,8 @@ import { NavController } from 'ionic-angular';
 
 import { Twitt } from '../../commons/twitt';
 
+import { UserService } from '../../services/user.service';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -16,8 +18,8 @@ export class HomePage {
       {img:'https://pbs.twimg.com/profile_images/807699331633598464/A_9pIQ6d.jpg', nick_name:'@jorgeucano', text:'test 1234'}
     ];
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(public navCtrl: NavController, private userService: UserService) {
+    //this.listado = userService.getHeroes();
   }
   
   onFav(response: string) {
