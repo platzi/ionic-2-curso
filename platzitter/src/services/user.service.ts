@@ -21,8 +21,11 @@ export class UserService {
   find(email, password):User{
     let user:User;
     user = USERS.find(x => x.email === email);
-    console.log(user);
-    return user;
+    if (user.password == password){
+      return user;
+    }
+    return undefined;
+    
   }
 
 

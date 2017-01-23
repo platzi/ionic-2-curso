@@ -1,5 +1,5 @@
 import { NgModule, ErrorHandler } from '@angular/core';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler }  from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { NotificationPage } from '../pages/notification/notification';
@@ -10,12 +10,10 @@ import { LoginPage } from '../pages/login/login';
 
 import { VerNotificationPage } from '../pages/notification/verNotification';
 
-
 import  { Fav } from '../components/fav/fav';
 
-
 import { UserService } from '../services/user.service';
-
+import { DBService } from '../services/db.service';
 
 //refactor para router
 
@@ -50,6 +48,6 @@ var links = [
     VerNotificationPage,
     Fav
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, UserService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, UserService, DBService]
 })
 export class AppModule {}
