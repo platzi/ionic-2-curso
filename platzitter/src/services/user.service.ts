@@ -5,6 +5,7 @@ import { USERS } from './mocks/users';
 
 @Injectable()
 export class UserService {
+
   getUser(): Promise<User[]> {
     console.log("entre al promise");
     return Promise.resolve(USERS);
