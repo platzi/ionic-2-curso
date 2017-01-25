@@ -5,6 +5,7 @@ import { AlertController, LoadingController,NavController } from 'ionic-angular'
 import { TabsPage } from '../tabs/tabs';
 import { SignInPage } from './signin';
 import { UserService } from '../../services/user.service';
+import {Geolocation} from 'ionic-native';
 
 @Component({
   selector: 'page-login',
@@ -22,9 +23,19 @@ export class LoginPage {
         ) {
     }
 
-    ngOnInit(){
+    ionViewWillEnter(){
         console.log("arranco el init");
-        //si el usuario esta logueado redireccionar a la home
+        
+        Geolocation.getCurrentPosition().then(pos => {
+        console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+        });
+
+        let watch = Geolocation.watchPosition().subscribe(pos => {
+        console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+        });
+
+        // to stop watching
+        watch.unsubscribe();
     }
 
     login = ():void=>{
