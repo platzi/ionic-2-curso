@@ -14,7 +14,7 @@ import  { Fav } from '../components/fav/fav';
 
 import { UserService } from '../services/user.service';
 import { DBService } from '../services/db.service';
-
+import { AdMob } from 'ionic-native';
 var links = [
   { component: LoginPage, name: 'Login', segment:'login'},
   { component: TabsPage, name: 'tabs', segment: 'tabs' },
@@ -87,7 +87,8 @@ const CLOUDSETTINGS: CloudSettings = {
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler}, 
     UserService,
-    DBService
+    DBService,
+    AdMob
     ]
 })
 export class AppModule {}

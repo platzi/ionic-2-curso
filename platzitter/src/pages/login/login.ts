@@ -7,6 +7,8 @@ import { SignInPage } from './signin';
 import { UserService } from '../../services/user.service';
 import {Geolocation} from 'ionic-native';
 
+import { AdMob } from 'ionic-native';
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
@@ -19,7 +21,8 @@ export class LoginPage {
         private alertCtrl: AlertController, 
         public loadingCtrl: LoadingController, 
         public navCtrl: NavController,
-        private userService: UserService
+        private userService: UserService,
+        private AdMob: AdMob
         ) {
     }
 
@@ -36,6 +39,9 @@ export class LoginPage {
 
         // to stop watching
         watch.unsubscribe();
+
+         AdMob.prepareInterstitial('test-banner')
+            .then(() => { AdMob.showInterstitial(); });
     }
 
     login = ():void=>{
