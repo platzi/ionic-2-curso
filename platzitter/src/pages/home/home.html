@@ -14,9 +14,9 @@
       <h3>{{item.text}}</h3>
       <ion-grid>
         <ion-row>
-          <ion-col width-33><fav id="10" (onFav)="onFav($event)"></fav></ion-col>
-          <ion-col width-33><ion-icon name="share-alt" color="replatzit"></ion-icon></ion-col>
-          <ion-col width-33><ion-icon name="repeat" ></ion-icon></ion-col>
+          <ion-col width-33><fav key="{{item.$key}}" cantidad="{{item.fav}}" (onFav)="onFav($event)"></fav> {{item.fav}}</ion-col>
+          <ion-col width-33><ion-icon name="share-alt"></ion-icon></ion-col>
+          <ion-col width-33><ion-icon name="repeat" tap="verTodo(item)" ></ion-icon></ion-col>
         </ion-row>
       </ion-grid>
     </ion-item>
