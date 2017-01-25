@@ -4,6 +4,8 @@ import { NavController } from 'ionic-angular';
 
 import { Profile } from '../../commons/profile';
 import { Twitt } from '../../commons/twitt';
+
+import {Camera} from 'ionic-native';
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html'
@@ -33,5 +35,24 @@ export class ProfilePage {
 
   constructor(public navCtrl: NavController) {
     this.profile.interactions = this.listado.length;
+  }
+
+  foto():void{
+    Camera.getPicture(
+      {
+        quality: 50,
+        destinationType: Camera.DestinationType.FILE_URI,
+        encodingType: Camera.EncodingType.JPEG,
+        mediaType: Camera.MediaType.PICTURE,
+        allowEdit: true,
+        correctOrientation: true  //Corrects Android orientation quicks
+      }
+    ).then((imageData) => {
+    // imageData is either a base64 encoded string or a file URI
+    // If it's base64:
+    let base64Image = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+    // Handle error
+    });
   }
 }

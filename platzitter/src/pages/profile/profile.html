@@ -37,7 +37,10 @@
     <ion-item>
       <ion-icon naprofile="book"></ion-icon>
       profiledium
-      <ion-badge item-right>{{profile.profiledium}}</ion-badge>
+      <ion-badge item-right>{{profile.medium}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <button (tap)="foto()">Sacar Foto</button>
     </ion-item>
   </ion-card>
 
@@ -46,7 +49,7 @@
       <ion-avatar item-left>
         <img src="{{item.img}}">
       </ion-avatar>
-      <h2>{{item.nick_naprofile}}</h2>
+      <h2>{{item.nick_name}}</h2>
       <h3>{{item.text}}</h3>
       <ion-grid>
         <ion-row>
