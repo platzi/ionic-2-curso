@@ -2,12 +2,12 @@
 <h1>Login</h1>
 <ion-item>
     <ion-label color="primary" stacked>Email</ion-label>
-    <ion-input [(ngModel)]="user.email" type="email" placeholder="Email"></ion-input>
+    <ion-input [(ngModel)]="_user.email" type="email" placeholder="Email"></ion-input>
 </ion-item>
 
 <ion-item>
     <ion-label color="primary" stacked>Password</ion-label>
-    <ion-input [(ngModel)]="user.password" type="password" placeholder="Password"></ion-input>
+    <ion-input [(ngModel)]="_user.password" type="password" placeholder="Password"></ion-input>
 </ion-item>
 
 <button ion-button (tap)="login()">Login</button>

@@ -9,20 +9,25 @@ import {Geolocation} from 'ionic-native';
 
 import { AdMob } from 'ionic-native';
 
+
+import { Auth, User } from '@ionic/cloud-angular';
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
 
-    user = {"email": "", "password":""};
+    _user = {"email": "", "password":""};
 
     constructor(
         private alertCtrl: AlertController, 
         public loadingCtrl: LoadingController, 
         public navCtrl: NavController,
         private userService: UserService,
-        private AdMob: AdMob
+        private AdMob: AdMob,
+        public auth: Auth, 
+        public user: User
         ) {
     }
 
@@ -45,41 +50,36 @@ export class LoginPage {
     }
 
     login = ():void=>{
-        if (this.user.email != "" && this.user.password != ""){
+        if (this._user.email != "" && this._user.password != ""){
 
             let usuarios;
 
-            /*
-            this.userService.getUser().then(
-                function(users){
-                    usuarios = users;
-                    console.log(usuarios);
-                }
-            );
-            */
             let loading = this.loadingCtrl.create({
                 content: 'Please wait...'
             });
             loading.present();
 
-            let login = false;
-            this.userService.loginUser(this.user.email, this.user.password).then(
+        
+            let details = {'email': this._user.email, 'password': this._user.password};
+
+            this.auth.login('basic', details).then(
+                
                 (response)=>{
-                    console.log(response);
                     loading.dismiss();
-                    if(response !== undefined){
-                        this.navCtrl.push(TabsPage);
-                    }
-                    else{
+                    console.log(response);
+                    this.navCtrl.push(TabsPage);
+                }, (err) => {
+                        loading.dismiss();
                         let alert = this.alertCtrl.create({
-                                        title: 'Login',
-                                        subTitle: 'Usuario y/o contraseña invalida',
-                                        buttons: ['Aceptar']
-                                    });
+                            title: 'Login',
+                            subTitle: 'Usuario y/o contraseña invalida',
+                            buttons: ['Aceptar']
+                        });
                         alert.present();
+                        console.log(err);
                     }
-                }
-            );
+                );
+                
         }
         else{
             let alert = this.alertCtrl.create({

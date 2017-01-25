@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { AlertController, LoadingController,NavController } from 'ionic-angular';
-import {DBService} from '../../services/db.service';
 import { TabsPage } from '../tabs/tabs';
+import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
+
+
 @Component({
   selector: 'page-signin',
   template: `
@@ -9,17 +11,17 @@ import { TabsPage } from '../tabs/tabs';
     <h1>Login</h1>
     <ion-item>
         <ion-label color="primary" stacked>Email</ion-label>
-        <ion-input [(ngModel)]="user.email" type="email" placeholder="Email"></ion-input>
+        <ion-input [(ngModel)]="_user.email" type="email" placeholder="Email"></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label color="primary" stacked>Password</ion-label>
-        <ion-input [(ngModel)]="user.password" type="password" placeholder="Password"></ion-input>
+        <ion-input [(ngModel)]="_user.password" type="password" placeholder="Password"></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label color="primary" stacked>Nick Name</ion-label>
-        <ion-input [(ngModel)]="user.nick_name" type="text" placeholder="Nick Name"></ion-input>
+        <ion-input [(ngModel)]="_user.nick_name" type="text" placeholder="Nick Name"></ion-input>
     </ion-item>
 
     <button ion-button (tap)="crear()" color="secondary">Crear Cuenta</button>
@@ -27,23 +29,35 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class SignInPage {
 
-    user = {"email": "", "password":"", img: "", nick_name: ""};
+    _user = {"email": "", "password":"", img: "", nick_name: ""};
 
     constructor(
         private alertCtrl: AlertController, 
         public loadingCtrl: LoadingController, 
         public navCtrl: NavController,
-        private dbService:DBService
+        public auth: Auth, 
+        public user: User
         ) {
     }
 
+    
+
     crear(){
-        if (this.dbService.create(this.user)){
+        let details: UserDetails = {
+            'email': this._user.email, 
+            'password': this._user.password        
+        };
+        this.auth.signup(details).then(() => {
             this.navCtrl.push(TabsPage);
-        }
-        else{
-            alert("Ocurrio un error");
-        }
+            }, (err: IDetailedError<string[]>) => {
+            for (let e of err.details) {
+                if (e === 'conflict_email') {
+                alert('Email already exists.');
+                } else {
+                    console.log(e);
+                }
+            }
+        });
     }
 
     
