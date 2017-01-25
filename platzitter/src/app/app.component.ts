@@ -6,6 +6,7 @@ import { LoginPage } from '../pages/login/login';
 
 //import { TabsPage } from '../pages/tabs/tabs';
 
+import { BackgroundMode } from 'ionic-native';
 
 import {
   Push,
@@ -27,7 +28,14 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
+
+      BackgroundMode.enable();
+      if (BackgroundMode.isActive()){
+        //ejecutar lo que queramos para que quede 
+      }
     });
+
+    
 /*
     this.push.register().then((t: PushToken) => {
       return this.push.saveToken(t);
