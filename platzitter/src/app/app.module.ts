@@ -15,13 +15,23 @@ import  { Fav } from '../components/fav/fav';
 import { UserService } from '../services/user.service';
 import { DBService } from '../services/db.service';
 
-//refactor para router
-
 var links = [
   { component: LoginPage, name: 'Login', segment:'login'},
   { component: TabsPage, name: 'tabs', segment: 'tabs' },
   { component: VerNotificationPage, name: 'notification', segment: 'notification/:id' }
 ];
+
+
+//FIREBASE
+import { AngularFireModule } from 'angularfire2';
+export const CONFIG = {
+    apiKey: "AIzaSyCzZ6AwE3LQWWBU1yjMy2jjBLOvucLvn6M",
+    authDomain: "hale-monument-147419.firebaseapp.com",
+    databaseURL: "https://hale-monument-147419.firebaseio.com",
+    storageBucket: "hale-monument-147419.appspot.com",
+    messagingSenderId: "194685471560"
+  };
+  
 
 @NgModule({
   declarations: [
@@ -36,7 +46,8 @@ var links = [
     SignInPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp, {}, links )
+    IonicModule.forRoot(MyApp, {}, links ),
+    AngularFireModule.initializeApp(CONFIG)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -50,6 +61,10 @@ var links = [
     Fav,
     SignInPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, UserService, DBService]
+  providers: [
+    {provide: ErrorHandler, useClass: IonicErrorHandler}, 
+    UserService,
+    DBService
+    ]
 })
 export class AppModule {}
