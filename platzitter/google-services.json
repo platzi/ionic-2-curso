@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "194685471560",
+    "firebase_url": "https://hale-monument-147419.firebaseio.com",
+    "project_id": "hale-monument-147419",
+    "storage_bucket": "hale-monument-147419.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194685471560:android:f25e8a54ef5fae4b",
+        "android_client_info": {
+          "package_name": "com.ionicframework.platzitter390288"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "194685471560-imav8q5hfbt2qqoor86vkrtkvau0bo02.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk8Q96OCmpRDmC4kK9LIWbUHDkk8Tn608"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

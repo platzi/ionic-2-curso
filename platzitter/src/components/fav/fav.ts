@@ -26,7 +26,7 @@ export class Fav {
 
       if (this.test == ""){
         //obtener el valor inicial
-        let cant:number = parseInt(this.cantidad) + 1;
+        let cant:number = this.cantidad + 1;
         
         this.listado.update(this.key, {
           fav : cant
@@ -36,7 +36,7 @@ export class Fav {
       }
       else{
         //obtener el valor inicial
-        let cant:number = parseInt(this.cantidad) - 1;
+        let cant:number = this.cantidad - 1;
         
         this.listado.update(this.key, {
           fav : cant

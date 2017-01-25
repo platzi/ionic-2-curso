@@ -33,6 +33,28 @@ export const CONFIG = {
   };
   
 
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+
+const CLOUDSETTINGS: CloudSettings = {
+  'core':{
+    'app_id': 'f501a6f1'
+  },
+  'push': {
+    'sender_id': '194685471560',
+    'pluginConfig': {
+      'ios': {
+        'badge': true,
+        'sound': true
+      },
+      'android': {
+        'iconColor': '#343434'
+      }
+    }
+  }
+};
+
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -47,7 +69,8 @@ export const CONFIG = {
   ],
   imports: [
     IonicModule.forRoot(MyApp, {}, links ),
-    AngularFireModule.initializeApp(CONFIG)
+    AngularFireModule.initializeApp(CONFIG),
+    CloudModule.forRoot(CLOUDSETTINGS)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
