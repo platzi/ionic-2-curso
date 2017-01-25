@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { AlertController, LoadingController,NavController } from 'ionic-angular';
 
 import { TabsPage } from '../tabs/tabs';
-
+import { SignInPage } from './signin';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -75,6 +75,6 @@ export class LoginPage {
     }
 
     signIn = ():void=>{
-        alert("signIn");
+        this.navCtrl.push(SignInPage);
     }
 }

@@ -9,7 +9,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 
 import { VerNotificationPage } from '../pages/notification/verNotification';
-
+import { SignInPage } from '../pages/login/signin';
 import  { Fav } from '../components/fav/fav';
 
 import { UserService } from '../services/user.service';
@@ -32,7 +32,8 @@ var links = [
     TabsPage,
     LoginPage,
     VerNotificationPage,
-    Fav
+    Fav,
+    SignInPage
   ],
   imports: [
     IonicModule.forRoot(MyApp, {}, links )
@@ -46,7 +47,8 @@ var links = [
     HomePage,
     TabsPage,
     VerNotificationPage,
-    Fav
+    Fav,
+    SignInPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, UserService, DBService]
 })

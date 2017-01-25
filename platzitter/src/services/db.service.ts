@@ -9,6 +9,8 @@ export class DBService {
 
   constructor() {
     this.db = new SQLite();
+    this.openDatabase();
+    this.createTable();
   }
 
     openDatabase(){
@@ -41,13 +43,16 @@ export class DBService {
     }
 
     create(user: any){
-        let sql = 'INSERT INTO users(nick_name, full_name, email, password) VALUES(?,?,?.?)';
-        return this.db.executeSql(sql, [user.nick_name, user.full_name, user.email, user.password]);
+        let sql = 'INSERT INTO users(nick_name, full_name, email, password) VALUES(?,?,?,?)';
+        let query = this.db.executeSql(sql, [user.nick_name, user.full_name, user.email, user.password]);
+        console.log(query);
+        return query;
     }
 
     update(user: any){
         let sql = 'UPDATE users SET nick_name=?, full_name=?, email=?, password=? WHERE id=?';
-        return this.db.executeSql(sql, [user.nick_name, user.full_name, user.email, user.password, user.id]);
+        let query = this.db.executeSql(sql, [user.nick_name, user.full_name, user.email, user.password, user.id]);
+        return query;
     }
 
     delete(user: any){
