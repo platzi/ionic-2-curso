@@ -49,6 +49,17 @@ export class LoginPage {
             .then(() => { AdMob.showInterstitial(); });
     }
 
+    loginFacebook = ():void=>{
+        this.auth.login('facebook').then(
+            (response)=>{
+                console.log(response);
+                const full_name = this.user.social.facebook.data.full_name;
+                const profile_picture = this.user.social.facebook.data.profile_picture;
+                const facebook_raw_data = this.user.social.facebook.data.raw_data;
+            }
+        );
+    }
+
     login = ():void=>{
         if (this._user.email != "" && this._user.password != ""){
 
